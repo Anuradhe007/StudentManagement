@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "properties.dtd">
+<properties>
+	<!-- General Errors -->
+	<entry key="GN001">You are not logged into the system, please login to continue.</entry>
+	<entry key="GN003">Error processing your request, please try again later.</entry>
+	<entry key="GN004">Invalid request, please try again later.</entry>
+	<entry key="GN005">Invalid username or password.</entry>
+	<!-- End of General Errors -->
+	
+	<!-- Back end request Errors -->
+	<entry key="BE001">System busy, Try again later</entry>
+	<entry key="BE002">You do not have access to use this service</entry>
+	<!-- End of Back end request Errors -->	
+</properties>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/student/scripts/jquery/jquery.js"></script>
+<script>
+$(document).ready(function(){
+  $("#lst").focusin(function(){
+    $(this).css("background-color","#FFFAFC");
+  });
+  $("#fst").focusout(function(){
+    $(this).css("background-color","#FFFFFF");
+  });
+});
+</script>
+</head>
+<body>
+<div style="border: 1px solid black;padding:10px;">
+First name: <input type="text" id="fst" /><br />
+Last name: <input type="text" id="lst" />
+</div>
+<p>Click outside the div to lose focus (blur).</p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration>
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<param name="Threshold" value="info"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
+		</layout>
+	</appender>	
+	<appender name="EVENT_LOG_INFO" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C://Studentmgt/logs/info.log"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+		</layout>	    		
+		<filter class="org.apache.log4j.varia.LevelMatchFilter">
+			<param name="LevelToMatch" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>						
+		<filter class="org.apache.log4j.varia.DenyAllFilter"/>	    				
+	</appender>
+	<appender name="EVENT_LOG_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C://Studentmgt/logs/error.log"/>
+		<param name="Append" value="true"/>	
+		<param name="Threshold" value="ERROR"/>			
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+		</layout>	    
+	</appender>		
+	<appender name="REQ_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+			<param name="File" value="C://Studentmgt/logs/http_request.log"/>
+			<param name="Append" value="true"/>
+			<param name="Threshold" value="DEBUG"/>
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="%d %-5p [%c],%m%n"/>
+			</layout>	    		
+	</appender>
+	<appender name="RES_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+			<param name="File" value="C://Studentmgt/logs/http_response.log"/>
+			<param name="Append" value="true"/>
+			<param name="Threshold" value="DEBUG"/>
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="%d %-5p [%c],%m%n"/>
+			</layout>	    		
+	</appender>
+	<appender name="TXN_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+			<param name="File" value="C://Studentmgt/logs/http_txn.log"/>
+			<param name="Append" value="true"/>
+			<param name="Threshold" value="DEBUG"/>
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="%d %-5p [%c],%m%n"/>
+			</layout>	    		
+	</appender>
+	<appender name="RES_EVT_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+			<param name="File" value="C://Studentmgt/logs/http_evt.log"/>
+			<param name="Append" value="true"/>
+			<param name="Threshold" value="DEBUG"/>
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="%d %-5p [%c],%m%n"/>
+			</layout>	    		
+	</appender>
+	<category name="httpevt">
+		<appender-ref ref="RES_EVT_LOG"/>
+	</category>
+	<category name="httprequest">
+		<appender-ref ref="REQ_LOG"/>
+	</category>
+	<category name="httpresponse">
+		<appender-ref ref="RES_LOG"/>
+	</category>
+	<category name="httptxn">
+		<appender-ref ref="TXN_LOG"/>
+	</category>	
+	<root>
+		<appender-ref ref="CONSOLE"/>
+	</root>
+	<category name="EVENT">
+		<appender-ref ref="EVENT_LOG_INFO"/>
+		<appender-ref ref="EVENT_LOG_ERROR"/>
+	</category>
+</log4j:configuration>

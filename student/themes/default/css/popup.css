@@ -1,0 +1,221 @@
+
+/* popup_box DIV-Styles*/
+#popup_fullName {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 180px;
+	background: #E0FFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #000099;
+	padding: 11px;
+	font-size: 9px;
+	moz-box-shadow: 0 0 10px #000099;
+	webkit-box-shadow: 0 0 5px #000099;
+	box-shadow: 0 0 5px #000099;
+}
+
+/*  popup_box Address   */
+
+#popup_address {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 230px;
+	background: #E0FFFF;
+	_left: 600px;
+	_top: 280px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #000099;
+	padding: 11px;
+	font-size: 9px;
+	moz-box-shadow: 0 0 10px #000099;
+	webkit-box-shadow: 0 0 5px #000099;
+	box-shadow: 0 0 5px #000099;
+}
+
+
+/*  popup_box NIC   */
+
+#popup_nic {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #E0FFFF;
+	_left: 600px;
+	_top: 300px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #000099;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #000099;
+	-webkit-box-shadow: 0 0 5px #000099;
+	box-shadow: 0 0 5px #000099;
+}
+
+
+
+#popup_email {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #E0FFFF;
+	_left: 600px;
+	_top: 300px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #000099;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #000099;
+	-webkit-box-shadow: 0 0 5px #000099;
+	box-shadow: 0 0 5px #000099;
+}
+
+#popup_phoneNo {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #E0FFFF;
+	_left: 600px;
+	_top: 300px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #000099;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #000099;
+	-webkit-box-shadow: 0 0 5px #000099;
+	box-shadow: 0 0 5px #000099;
+}
+
+
+
+#popup_fullName_warning {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #FFFFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #ff0000;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+}
+
+#popup_address_warning {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #FFFFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #ff0000;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+}
+
+#popup_nic_warning {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 100px;
+	background: #FFFFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #ff0000;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+}
+
+#popup_email_warning {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 100px;
+	background: #FFFFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #ff0000;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+}
+
+
+#popup_phoneno_warning {
+	display: none; /* Hide the DIV */
+	_position: fixed;
+	position: relative; /* hack for internet explorer 6 */
+	height: 1px;
+	width: 150px;
+	background: #FFFFFF;
+	_left: 600px;
+	_top: 246px;
+	z-index: 100;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;
+	/* additional features, can be omitted */
+	border: 2px solid #ff0000;
+	padding: 11px;
+	font-size: 9px;
+	-moz-box-shadow: 0 0 10px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Student Management System </title>
+<link href="../../themes/default/css/default.css" rel="stylesheet" type="text/css">
+<link href="/student/themes/default/css/default.css" rel="stylesheet" type="text/css">
+<link type="text/css" href="/student/scripts/jquery/themes/base/ui.all.css" rel="stylesheet" />
+<script type="text/javascript" src="/student/scripts/jquery/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="/student/scripts/jquery/jquery.dropshadow.js"></script>
+<script type="text/javascript">
+	$(window).load(function () {
+  		$("#infoDIV").hide();
+		$("#loadingDIV").hide();
+				
+		$("#logindiv").keypress(function (e) {
+			if(e.which == 13) {
+				doPost();
+			}
+		});
+		
+		$('#submitIco').hover(
+			    function(){
+			      var $this = $(this);
+			      $this.data('bgcolor', $this.css('background-color')).css('background-color', '#0066FF');
+			    },
+			    function(){
+			      var $this = $(this);
+			      $this.css('background-color', $this.data('bgcolor'));
+			    }
+			  );
+		
+		$("#username").focus();
+	});
+	doPost = function() {
+		$("#infoDIV").html("");
+		$("#infoDIV").hide();
+		
+		var un = $("#username");
+		var pw = $("#password");
+		
+		if((un.attr("value")=='') && (pw.attr("value")=='')) {			
+			$("#infoDIV").show();
+			$("#infoDIV").addClass("error-bold-text-11px");
+			$("#infoDIV").html("Username & Password both are required fields");
+			$("#username").focus();
+			return;
+		}
+		else if(un.attr("value")=='') {			
+			$("#infoDIV").show();
+			$("#infoDIV").addClass("error-bold-text-11px");
+			$("#infoDIV").html("Username cannot be empty");
+			$("#username").focus();
+			return;
+		}	
+		else if(pw.attr("value")=='') {			
+			$("#infoDIV").show();
+			$("#infoDIV").addClass("error-bold-text-11px");
+			$("#infoDIV").html("Password cannot be empty");
+			$("#password").focus();
+			return;
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "/student/control/user/loginCtrl.jsp",
+			data: {action: "login", username: un.attr("value"), password: pw.attr("value")},
+			time: 10000,
+			dataType: "json",
+			cache: false,
+			success: function(data){
+				if(data.status=="OK") {
+					pw.attr("value","");				
+					$("#submitButtonDIV").hide();
+					$("#loadingDIV").show();	
+					$("#infoDIV").show();	
+					$("#infoDIV").addClass("body-bold-text-11px");			
+					$("#infoDIV").html(data.msg);
+					window.location = "/student/view/home.jsp";					
+				} else {
+					pw.attr("value","");				
+					$("#submitButtonDIV").show();
+					$("#loadingDIV").hide();
+					$("#infoDIV").show();
+					$("#infoDIV").addClass("error-bold-text-11px");	
+					$("#infoDIV").html(data.msg);
+				}				
+			},
+			error: function(data){	
+				pw.attr("value","");				
+				$("#submitButtonDIV").show();
+				$("#loadingDIV").hide();
+				$("#infoDIV").show();
+				$("#infoDIV").addClass("error-bold-text-11px");	
+				$("#infoDIV").html("Invalid username or password");				
+			},
+			beforeSend: function(data){				
+				$("#submitButtonDIV").hide();
+				$("#loadingDIV").show();
+			} 
+		});
+	}
+</script>
+</head>
+<body>
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#81BEF7" ><!-- header blue#08088A -->
+  <tr>
+    <td height="75px"></td>
+    <td valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CEE3F6">
+          <tr>
+            <td colspan="3"><img src="/student/themes/default/images/common/header.jpg"  height="120" width="800"></td>
+            </tr>
+            <tr>
+              <td align="left" valign="bottom"><!-- InstanceBeginEditable name="title-region" --><span class="title-16px">Student Management System</span><!-- InstanceEndEditable --></td>
+              <td align="right" valign="bottom"><!-- InstanceBeginEditable name="userstatus-region" --></td>
+            </tr>
+          </table></td>
+      </tr>
+      <tr>
+        <td height="6px" bgcolor="#08088A"></td><!-- header boder above menu -->
+      </tr>
+      <tr>
+        <td height="30px" bgcolor="#08088A"></td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#81BEF7">&nbsp;</td>
+    <td align="left" valign="top">
+      <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"  bgcolor="#CEE3F6" >
+      <tr>
+        <td colspan="3" height="10px"></td>
+      </tr>
+      <tr>
+        <td width="10px">&nbsp;</td>
+        <td align="center" valign="middle">
+        <div id="logindiv" style="background-color:#666666;width:350px" class="box">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#CEE3F6" background="/student/themes/default/images/common/login.jpg">
+          <tr>
+          	<td></td>
+            <td colspan="2" height="10px" align="center"><div><img src="/student/themes/default/images/common/loginimage.jpg" width="100" height="100"></td>
+          </tr>
+          <tr>
+            <td width="10px"></td>
+            <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" class="title-14px">User Login</td>
+                </tr>
+              <tr>
+                <td colspan="3" height="10px"></td>
+              </tr>
+              <tr>
+                <td colspan="3"><div id="infoDIV"></div></td>
+              </tr>
+              <tr>
+                <td colspan="3" height="10px"></td>
+              </tr>
+              <tr>
+                <td class="body-bold-text-12px" width="70px">Username</td>
+                <td width="10px">&nbsp;</td>
+                <td><input name="username" id="username" type="text" class="input" placeholder="username" /></td>
+              </tr>
+              <tr>
+                <td colspan="3" height="10px"></td>
+              </tr>
+              <tr>
+                <td class="body-bold-text-12px">Password</td>
+                <td width="10px">&nbsp;</td>
+                <td><input name="password" type="password" class="input" id="password" placeholder="password"/></td>
+              </tr>
+              <tr>
+                <td colspan="3" height="10px"></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                	<div align="left" id="submitButtonDIV"><a id="submitIco" href="javascript:doPost();" class="button">Sign In</a></div>
+	                <div align="left" id="loadingDIV"><img src="/student/themes/default/images/common/loading.gif" alt="Loading..."></div>
+                </td>
+              </tr>
+            </table></td>
+            <td width="10px">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" height="10px"></td>
+          </tr>
+        </table>
+        </div>
+        </td>
+        <td width="10px">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3" height="10px"></td>
+      </tr>
+      </table>
+      <script language="javascript" type="text/javascript">
+	  $("#logindiv").dropShadow( {
+	  		left:25,
+	  		top:5, 
+			blur:3, 
+			opacity:0.3, 
+			color:"#08088A"
+		});
+      </script>
+	  </td>
+    <td bgcolor="#81BEF7">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="bottom" height="50px">&nbsp;</td>
+    <td align="center" valign="top" width="800px">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="6px" bgcolor="#08088A"></td><!-- header boder above menu -->
+      </tr>
+      <tr>
+        <td height="5px"></td>
+      </tr>
+      <tr>
+        <td><span class="body-text-11px"> All Rights Reserved.</span></td>
+      </tr>
+      <tr>
+        <td height="5px"></td>
+      </tr>
+    </table>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
